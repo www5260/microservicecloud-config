@@ -1,0 +1,88 @@
+﻿spring: 
+  profiles: 
+    active:
+    - dev
+---
+server: 
+  port: 8001
+
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-dept-client				# 对外暴露的微服务的名字，不是项目名
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource			# 当前数据源操作类型,连接池
+    # driver-class-name: com.mysql.jdbc.Driver				# mysql驱动包,springBoot可以不用写驱动类
+    url: jdbc:mysql://localhost:3306/clouddb01?characterEncoding=utf8&serverTimezone=UTC&useUnicode=true&useSSL=false	# 数据库名称
+    username: root
+    password: zdj
+    dbcp2:
+      min-idle: 5				# 数据库连接池的最小维持连接数
+      initial-size: 5			# 初始化连接数
+      max-total: 5				# 最大连接数
+      max-wait-millis: 200		# 等待连接获取的最大超时时间
+
+# mybatis配置信息
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml		# mybatis配置文件所在路径
+  type-aliases-package: com.buba.entity						# 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml						# mapper映射文件 
+
+eureka: 
+  client:  
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: dept8001.com		# 给当前服务起的id标识
+    prefer-ip-address: true						#访问路径可以显示IP地址 
+
+# info的信息的设置
+info: 
+  app.name: atguigu-microservicecloud
+  company.name: www.buba.com
+  公司名称: 北工商
+  build.artifactId: $project.artifactId$ # 获取上面的信息
+  build.version: $project.version$
+---
+server: 
+  port: 8001
+
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-dept-client				# 对外暴露的微服务的名字，不是项目名
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource			# 当前数据源操作类型,连接池
+    # driver-class-name: com.mysql.jdbc.Driver				# mysql驱动包,springBoot可以不用写驱动类
+    url: jdbc:mysql://localhost:3306/clouddb01?characterEncoding=utf8&serverTimezone=UTC&useUnicode=true&useSSL=false	# 数据库名称
+    username: root
+    password: zdj
+    dbcp2:
+      min-idle: 5				# 数据库连接池的最小维持连接数
+      initial-size: 5			# 初始化连接数
+      max-total: 5				# 最大连接数
+      max-wait-millis: 200		# 等待连接获取的最大超时时间
+
+# mybatis配置信息
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml		# mybatis配置文件所在路径
+  type-aliases-package: com.buba.entity						# 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml						# mapper映射文件 
+
+eureka: 
+  client:  
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: dept8001.com		# 给当前服务起的id标识
+    prefer-ip-address: true						#访问路径可以显示IP地址 
+
+# info的信息的设置
+info: 
+  app.name: atguigu-microservicecloud
+  company.name: www.buba.com
+  公司名称: 北工商
+  build.artifactId: $project.artifactId$ # 获取上面的信息
+  build.version: $project.version$
