@@ -32,7 +32,7 @@ mybatis:
 eureka: 
   client:  
     service-url: 
-      defaultZone: http://eureka7001.com:7001/eureka
+      defaultZone: http://localhost:7001/eureka
   instance:
     instance-id: dept8001.com		# 给当前服务起的id标识
     prefer-ip-address: true						#访问路径可以显示IP地址 
@@ -55,7 +55,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource			# 当前数据源操作类型,连接池
     # driver-class-name: com.mysql.jdbc.Driver				# mysql驱动包,springBoot可以不用写驱动类
-    url: jdbc:mysql://localhost:3306/clouddb01?characterEncoding=utf8&serverTimezone=UTC&useUnicode=true&useSSL=false	# 数据库名称
+    url: jdbc:mysql://localhost:3306/clouddb02?characterEncoding=utf8&serverTimezone=UTC&useUnicode=true&useSSL=false	# 数据库名称
     username: root
     password: zdj
     dbcp2:
@@ -74,7 +74,7 @@ mybatis:
 eureka: 
   client:  
     service-url: 
-      defaultZone: http://eureka7001.com:7001/eureka
+      defaultZone: http://localhost:7001/eureka
   instance:
     instance-id: dept8001.com		# 给当前服务起的id标识
     prefer-ip-address: true						#访问路径可以显示IP地址 
